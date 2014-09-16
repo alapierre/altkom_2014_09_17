@@ -19,7 +19,7 @@
     <!-- Placeholder config -->
     <context:property-placeholder location="classpath:test.properties" />
     <context:annotation-config/>
-    <!--    <context:component-scan base-package="pl.com.softproject.altkom.hibernate.dao.springdata"/>-->
+    <context:component-scan base-package="pl.altkom.logistic.dao"/>
 	
 <!--    <jpa:repositories base-package="pl.com.softproject.altkom.hibernate.dao.springdata"/>    -->
         

@@ -7,9 +7,12 @@
 package pl.altkom.logistic.core;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
+import pl.altkom.logistic.core.model.Car;
+import pl.altkom.logistic.dao.CarDAO;
 
 /**
  *
@@ -19,9 +22,21 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 @TransactionConfiguration(defaultRollback = false)
 public class TestContext extends AbstractTransactionalJUnit4SpringContextTests {
     
+    @Autowired
+    private CarDAO carDAO;
+    
     @Test
     public void test() {
         System.out.println("11");
+    }
+    
+    @Test
+    public void testLoad() {
+        
+        Car car = carDAO.load(1);
+        
+        System.out.println("car " + car);
+        
     }
     
 }
