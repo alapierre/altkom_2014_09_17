@@ -6,6 +6,7 @@
 
 package pl.altkom.logistic.core;
 
+import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -34,8 +35,18 @@ public class TestContext extends AbstractTransactionalJUnit4SpringContextTests {
     public void testLoad() {
         
         Car car = carDAO.load(1);
+        car.setName("changed");
+        carDAO.save(car);
+        
+        Car car2 = new Car();
+        car2.setName("mycar");
+        carDAO.save(car2);
         
         System.out.println("car " + car);
+        
+        List<Car> l = carDAO.getByName("asdf");
+        System.out.println("size: "+l.size());
+        
         
     }
     

@@ -6,6 +6,7 @@
 
 package pl.altkom.logistic.dao;
 
+import java.util.List;
 import pl.altkom.logistic.core.model.Car;
 
 /**
@@ -17,5 +18,7 @@ public interface CarDAO {
     Car load(int id);
 
     void save(Car car);
+    
+    List<Car> getByName(String name);
     
 }
