@@ -7,6 +7,7 @@ package pl.altkom.logistic.core.model;
 
 import java.math.BigDecimal;
 import java.util.Currency;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -15,6 +16,7 @@ import javax.persistence.OneToOne;
  *
  * @author Joanna Rosinska
  */
+@Entity
 public class InvoiceItem extends BaseEntity {
 
     private BigDecimal price;
