@@ -24,7 +24,7 @@ public class User extends BaseEntity{
 //    @ManyToMany
 //    private Collection<Customer> customers;
     
-//    @OneToOne
+//    @OneToMany
 //    private Collection<Car> cars;
 
     public String getFirstName() {
