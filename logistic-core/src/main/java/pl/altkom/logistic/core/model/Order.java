@@ -35,6 +35,7 @@ public class Order extends BaseEntity {
     @Enumerated(EnumType.ORDINAL) 
     private PaymentMethod paymentMethod;
 
+
     public Order() {
         
     }
