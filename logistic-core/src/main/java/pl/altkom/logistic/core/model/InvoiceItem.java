@@ -6,13 +6,24 @@
 
 package pl.altkom.logistic.core.model;
 
-import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
- * @author Pawel Beder <AA@aa.com>
+ * @author Joanna Rosinska
  */
-@Entity
-class InvoiceItem extends BaseEntity {
+public class InvoiceItem extends BaseEntity{
     
+    @ManyToOne
+    @JoinColumn(name = "INV_ID")
+    private Invoice invoice;
+
+    public Invoice getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
 }
