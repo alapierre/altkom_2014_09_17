@@ -1,7 +1,9 @@
 package pl.altkom.logistic.core.model;
 
 
+import java.util.Collection;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,8 +23,11 @@ public class User extends BaseEntity{
     
     private String lastName;
 
-//    @OneToMany
+//    @ManyToMany
 //    private Collection<Customer> customers;
+    
+    @OneToMany
+    private Collection<Car> cars;
 
     public String getFirstName() {
         return firstName;
@@ -46,6 +51,14 @@ public class User extends BaseEntity{
 //    public void setCustomers(Collection<Customer> customers) {
 //        this.customers = customers;
 //    }
+    
+    public Collection<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(Collection<Car> cars) {
+        this.cars = cars;
+    }
     
     
 }
