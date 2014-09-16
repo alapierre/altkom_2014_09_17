@@ -3,16 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package pl.altkom.logistic.core.model;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
@@ -22,10 +17,13 @@ import javax.persistence.Temporal;
  */
 @Entity
 @SuppressWarnings("PersistenceUnitPresent")
-public class Invoice extends BaseEntity  {
-    
+public class Invoice extends BaseEntity {
+
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date;
+
+    @OneToMany(mappedBy = "invoice")
+    private Collection<InvoiceItem> invoiceItems;
 
     public Date getDate() {
         return date;
@@ -42,8 +40,5 @@ public class Invoice extends BaseEntity  {
     public void setInvoiceItems(Collection<InvoiceItem> invoiceItems) {
         this.invoiceItems = invoiceItems;
     }
-    
-    @OneToMany(mappedBy = "invoice")
-    private Collection<InvoiceItem> invoiceItems;
-   
+
 }
