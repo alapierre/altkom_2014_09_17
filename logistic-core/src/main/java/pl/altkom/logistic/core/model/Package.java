@@ -28,9 +28,9 @@ public class Package extends BaseEntity{
     
     private String status;
     
-//    @OneToOne
-//    @JoinColumn(name="ADDRESS_ID")
-//    private Address address;
+    @OneToOne
+    @JoinColumn(name="ADDRESS_ID")
+    private Address address;
 
     public int getSize() {
         return size;
@@ -56,11 +56,11 @@ public class Package extends BaseEntity{
         this.status = status;
     }
 
-//    public Address getAddress() {
-//        return address;
-//    }
-//
-//    public void setAddress(Address address) {
-//        this.address = address;
-//    }
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 }
