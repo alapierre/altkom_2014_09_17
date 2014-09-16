@@ -6,10 +6,13 @@
 
 package pl.altkom.logistic.core.model;
 
+import javax.persistence.Entity;
+
 /**
  *
  * @author Sylwia
  */
+@Entity
 public class PackageItem extends BaseEntity{
     
     private String type;
