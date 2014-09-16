@@ -6,19 +6,16 @@
 
 package pl.altkom.logistic.dao;
 
-import java.util.List;
-import pl.altkom.logistic.core.model.Car;
+import pl.altkom.logistic.core.model.Order;
 
 /**
  *
- * @author instruktor
+ * @author Wojtek Jozkow
  */
-public interface CarDAO {
+public interface OrderDAO {
 
-    Car load(int id);
-    
-    Car findByName(String name);
+    Order load(int id);
 
-    void save(Car car);
+    void save(Order car);
     
 }

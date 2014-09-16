@@ -8,24 +8,63 @@ package pl.altkom.logistic.core.model;
 
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Table;
 
 /**
  *
  * @author Wojtek Jozkow
  */
-
-public class Order {
+@Entity
+@Table(name="orderTable")
+@SuppressWarnings("PersistenceUnitPresent")
+public class Order extends BaseEntity {
     
     private Date placed;
     private Date delivered;
     
     //TODO wjozkow
-    private String deliveryAddress;
-    private PaymentMethod paymentMethod;
+    //private Address deliveryAddress;
     
-    public enum PaymentMethod{
+    @Enumerated(EnumType.ORDINAL) 
+    private PaymentMethod paymentMethod;
+
+    public Order() {
+        
+    }
+    
+    
+    
+    public enum PaymentMethod {
         CASH,
         BANK_TRANSFER,
         BITCOIN        
     }
+
+    public Date getPlaced() {
+        return placed;
+    }
+
+    public void setPlaced(Date placed) {
+        this.placed = placed;
+    }
+
+    public Date getDelivered() {
+        return delivered;
+    }
+
+    public void setDelivered(Date delivered) {
+        this.delivered = delivered;
+    }
+
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+    
+    
 }

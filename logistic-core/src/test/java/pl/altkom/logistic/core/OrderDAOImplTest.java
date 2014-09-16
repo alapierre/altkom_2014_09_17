@@ -5,6 +5,7 @@
  */
 
 package pl.altkom.logistic.core;
+import java.util.Date;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import pl.altkom.logistic.core.model.Car;
+import pl.altkom.logistic.core.model.Order;
 import pl.altkom.logistic.dao.CarDAO;
+import pl.altkom.logistic.dao.OrderDAO;
 
 /**
  *
@@ -20,10 +23,10 @@ import pl.altkom.logistic.dao.CarDAO;
  */
 @ContextConfiguration("/core-test-context.xml")
 @TransactionConfiguration(defaultRollback = false)
-public class TestContext extends AbstractTransactionalJUnit4SpringContextTests {
+public class OrderDAOImplTest extends AbstractTransactionalJUnit4SpringContextTests {
     
     @Autowired
-    private CarDAO carDAO;
+    private OrderDAO orderDAO;
     
     @Test
     public void test() {
@@ -32,27 +35,17 @@ public class TestContext extends AbstractTransactionalJUnit4SpringContextTests {
     
     @Test
     public void testLoad() {
-        Car car = carDAO.load(1);
-        System.out.println("car " + car);
-    }
-    
-    @Test
-    public void createCar(){
-        String carName = "Zaporozec";
-        Car car = new Car();
-        car.setName(carName);
-        carDAO.save(car);
-        Car foundCar = carDAO.findByName(carName);
-        assertNotNull(foundCar);
+        Order order = orderDAO.load(1);
+        System.out.println("order " + order);
     }
     
     @Test
     public void testSave() {
         
-        Car car = new Car();
-        car.setName("Testowy samochód");
+        Order order = new Order();
+        order.setPlaced(new Date());
         
-        carDAO.save(car);
+        orderDAO.save(order);
         
     }
     
