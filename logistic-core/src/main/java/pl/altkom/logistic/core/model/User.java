@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author lukasz s
+ * @author lukasz s ...
  */
 @Entity
 @SuppressWarnings("PersistenceUnitPresent")
