@@ -1,15 +1,7 @@
 package pl.altkom.logistic.core.model;
 
 
-import java.io.Serializable;
-import java.util.Collection;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.Size;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,7 +11,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author instruktor
+ * @author lukasz s
  */
 @Entity
 @SuppressWarnings("PersistenceUnitPresent")
