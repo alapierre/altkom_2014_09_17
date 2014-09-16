@@ -3,6 +3,8 @@ package pl.altkom.logistic.core.model;
 
 import java.util.Collection;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 /*
@@ -23,10 +25,11 @@ public class User extends BaseEntity{
     
     private String lastName;
 
-//    @ManyToMany
-//    private Collection<Customer> customers;
+    @ManyToMany
+    private Collection<Customer> customers;
     
     @OneToMany
+    @JoinColumn(name = "USER_ID")
     private Collection<Car> cars;
 
     public String getFirstName() {
@@ -44,13 +47,13 @@ public class User extends BaseEntity{
         this.lastName = lastName;
     }
     
-//    public String getCustomers() {
-//        return customers;
-//    }
-//
-//    public void setCustomers(Collection<Customer> customers) {
-//        this.customers = customers;
-//    }
+    public Collection<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(Collection<Customer> customers) {
+        this.customers = customers;
+    }
     
     public Collection<Car> getCars() {
         return cars;
