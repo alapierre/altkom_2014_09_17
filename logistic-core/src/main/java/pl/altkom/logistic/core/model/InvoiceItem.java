@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.Currency;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -23,6 +24,10 @@ public class InvoiceItem extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "INV_ID")
     private Invoice invoice;
+    
+    @OneToOne
+    @JoinColumn(name="TAXRATE_ID")
+    private TaxRate rate;
 
     public Invoice getInvoice() {
         return invoice;
