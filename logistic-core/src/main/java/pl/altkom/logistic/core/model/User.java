@@ -3,6 +3,7 @@ package pl.altkom.logistic.core.model;
 
 import java.util.Collection;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 /*
@@ -27,6 +28,7 @@ public class User extends BaseEntity{
 //    private Collection<Customer> customers;
     
     @OneToMany
+    @JoinColumn(name = "USER_ID")
     private Collection<Car> cars;
 
     public String getFirstName() {
