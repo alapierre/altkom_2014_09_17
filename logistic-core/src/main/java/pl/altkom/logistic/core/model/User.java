@@ -5,6 +5,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,7 +28,22 @@ public class User extends BaseEntity{
     @OneToMany
     @JoinColumn(name = "UZER_ID")
     private Collection<Car> cars;
+    @ManyToOne
+    private Department department;
 
+
+    
+//    @OneToMany
+//    private Collection<Customer> customers;
+   
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+    
     public String getFirstName() {
         return firstName;
     }
