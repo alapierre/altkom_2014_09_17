@@ -25,7 +25,7 @@ public class User extends BaseEntity{
     private Collection<Customer> customers;
     
     @OneToMany
-    @JoinColumn(name = "USER_ID")
+    @JoinColumn(name = "UZER_ID")
     private Collection<Car> cars;
 
     public String getFirstName() {
