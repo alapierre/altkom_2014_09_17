@@ -19,9 +19,9 @@
     <!-- Placeholder config -->
     <context:property-placeholder location="classpath:test.properties" />
     <context:annotation-config/>
-    <context:component-scan base-package="pl.altkom.logistic.dao"/>
+<!--    <context:component-scan base-package="pl.altkom.logistic.dao"/>-->
 	
-<!--    <jpa:repositories base-package="pl.com.softproject.altkom.hibernate.dao.springdata"/>    -->
+    <jpa:repositories base-package="pl.altkom.logistic.dao.springdata"/>    
         
     <!-- Data source -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
