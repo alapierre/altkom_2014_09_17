@@ -39,7 +39,13 @@ public class User extends BaseEntity{
         this.lastName = lastName;
     }
     
-    
+//    public String getCustomers() {
+//        return customers;
+//    }
+//
+//    public void setCustomers(Collection<Customer> customers) {
+//        this.customers = customers;
+//    }
     
     
 }
