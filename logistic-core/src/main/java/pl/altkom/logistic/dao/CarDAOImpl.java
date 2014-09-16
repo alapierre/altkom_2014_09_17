@@ -6,6 +6,7 @@
 
 package pl.altkom.logistic.dao;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
