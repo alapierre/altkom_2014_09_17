@@ -6,7 +6,10 @@
 
 package pl.altkom.logistic.core.model;
 
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
 /**
@@ -18,8 +21,20 @@ import javax.validation.constraints.Size;
 public class Country extends BaseEntity {
     
     @Size(max=64)
-    String countryName;
+    private String countryName;
 
+    @OneToMany(mappedBy = "country")
+    private List<Department> departments;
+
+    public List<Department> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(List<Department> departments) {
+        this.departments = departments;
+    }
+
+    
     public String getCountryName() {
         return countryName;
     }

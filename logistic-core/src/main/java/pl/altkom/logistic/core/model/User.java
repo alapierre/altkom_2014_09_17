@@ -5,13 +5,9 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import javax.persistence.Table;
 
 /**
  *
@@ -19,6 +15,7 @@ import javax.persistence.OneToMany;
  */
 @Entity
 @SuppressWarnings("PersistenceUnitPresent")
+@Table(name = "UZER")
 public class User extends BaseEntity{
     
     private String firstName;
@@ -31,7 +28,22 @@ public class User extends BaseEntity{
     @OneToMany
     @JoinColumn(name = "USER_ID")
     private Collection<Car> cars;
+    @ManyToOne
+    private Department department;
 
+
+    
+//    @OneToMany
+//    private Collection<Customer> customers;
+   
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+    
     public String getFirstName() {
         return firstName;
     }
