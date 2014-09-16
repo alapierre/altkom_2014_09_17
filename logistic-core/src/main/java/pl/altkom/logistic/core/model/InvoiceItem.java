@@ -18,4 +18,12 @@ public class InvoiceItem extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "INV_ID")
     private Invoice invoice;
+
+    public Invoice getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
 }
