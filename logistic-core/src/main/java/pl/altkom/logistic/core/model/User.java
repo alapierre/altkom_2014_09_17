@@ -2,6 +2,7 @@ package pl.altkom.logistic.core.model;
 
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,9 +22,22 @@ public class User extends BaseEntity{
     
     private String lastName;
 
+    @ManyToOne
+    private Department department;
+
+
+    
 //    @OneToMany
 //    private Collection<Customer> customers;
+   
+    public Department getDepartment() {
+        return department;
+    }
 
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+    
     public String getFirstName() {
         return firstName;
     }
