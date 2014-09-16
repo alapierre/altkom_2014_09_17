@@ -6,12 +6,9 @@
 
 package pl.altkom.logistic.dao;
 
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.CollectionUtils;
 import pl.altkom.logistic.core.model.Car;
 
 /**
@@ -36,17 +33,9 @@ public class CarDAOImpl implements CarDAO {
 
     @Override
     public Car findByName(String name) {
-        String ql = "SELECT c FROM Car AS c WHERE c.name = :name";
-        
-        Query query = em.createQuery(ql);
-        query.setParameter("name", name);
-        List<Car> cars = query.getResultList();
-        
-        if (!CollectionUtils.isEmpty(cars)) {
-            return cars.get(0);
-        }
-        
-        return null;
+        java.util.List<Car> resultList = em.createQuery("SELECT c FROM Car c where c.name = :value1")
+                .setParameter("value1", name).getResultList();
+        return resultList.isEmpty()?null:resultList.get(0);
     }
     
 }
