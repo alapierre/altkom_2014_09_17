@@ -44,7 +44,7 @@ public class TestContext extends AbstractTransactionalJUnit4SpringContextTests {
         
         System.out.println("car " + car);
         
-        List<Car> l = carDAO.getByName("asdf");
+        List<Car> l = carDAO.getByName("changed");
         System.out.println("size: "+l.size());
         
         

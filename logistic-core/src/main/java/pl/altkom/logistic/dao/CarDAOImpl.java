@@ -40,16 +40,20 @@ public class CarDAOImpl implements CarDAO {
     
     @Override
     public List<Car> getByName(String name){
-        
-          CriteriaBuilder cb = em.getCriteriaBuilder();
- 
-  CriteriaQuery<Car> q = cb.createQuery(Car.class);
-  Root<Car> c = q.from(Car.class);
-  q.select(c);
+//        
+//          CriteriaBuilder cb = em.getCriteriaBuilder();
+// 
+//  CriteriaQuery<Car> q = cb.createQuery(Car.class);
+//  Root<Car> c = q.from(Car.class);
+//  q.select(c);
+//  
+//  
+//  TypedQuery<Car> query = em.createQuery(q);
+//  List<Car> results = query.getResultList();
   
-  TypedQuery<Car> query = em.createQuery(q);
-  List<Car> results = query.getResultList();
-  
+            TypedQuery<Car> query = em.createQuery(
+        "SELECT c FROM Car c WHERE c.name = :name", Car.class);
+    List<Car> results= query.setParameter("name", name).getResultList();
   return results;
     }
     
