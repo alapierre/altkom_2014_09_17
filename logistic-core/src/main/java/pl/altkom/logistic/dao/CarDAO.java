@@ -15,6 +15,8 @@ import pl.altkom.logistic.core.model.Car;
 public interface CarDAO {
 
     Car load(int id);
+    
+    Car findByName(String name);
 
     void save(Car car);
     
