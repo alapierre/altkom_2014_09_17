@@ -50,4 +50,14 @@ public class TestContext extends AbstractTransactionalJUnit4SpringContextTests {
         
     }
     
+    @Test
+    public void testSave() {
+        
+        Car car = new Car();
+        car.setName("Testowy samochód");
+        
+        carDAO.save(car);
+        
+    }
+    
 }
