@@ -10,6 +10,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -29,6 +31,10 @@ public class Order extends BaseEntity {
     
     @Enumerated(EnumType.ORDINAL) 
     private PaymentMethod paymentMethod;
+    
+    @OneToOne
+    @JoinColumn(name = "ADDRESS_ID")
+    private Address address;
 
     public Order() {
         

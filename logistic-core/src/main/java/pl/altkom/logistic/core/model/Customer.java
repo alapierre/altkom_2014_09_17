@@ -9,6 +9,8 @@ package pl.altkom.logistic.core.model;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
 
 /**
@@ -22,6 +24,18 @@ public class Customer extends BaseEntity {
     private String customerName;
     @Enumerated(EnumType.STRING)
     private CustomerType customerType;
+    
+    @OneToOne
+    @JoinColumn(name = "ADDRESS_ID")
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public String getCustomerName() {
         return customerName;
