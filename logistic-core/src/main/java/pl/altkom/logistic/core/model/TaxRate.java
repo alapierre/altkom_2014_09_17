@@ -16,6 +16,7 @@ import javax.persistence.Entity;
 public class TaxRate extends BaseEntity {
 
     private int rate;
+    private InvoiceItem item;
 
     public int getRate() {
         return rate;
