@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 import pl.altkom.logistic.core.model.Car;
 
 /**
@@ -36,8 +37,7 @@ public class CarDAOImpl implements CarDAO {
     public Car findByName(String name) {
         java.util.List<Car> resultList = em.createQuery("SELECT c FROM Car c where c.name = :value1")
                 .setParameter("value1", name).getResultList();
-        return resultList.isEmpty()?null:resultList.get(0);
+        return CollectionUtils.isEmpty(resultList)?null:resultList.get(0);
     }
-   
     
 }

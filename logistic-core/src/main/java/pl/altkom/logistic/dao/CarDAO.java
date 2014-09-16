@@ -20,5 +20,4 @@ public interface CarDAO {
     Car findByName(String name);
 
     void save(Car car);
-    
 }
