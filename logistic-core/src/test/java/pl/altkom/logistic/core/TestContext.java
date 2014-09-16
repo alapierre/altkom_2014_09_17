@@ -35,8 +35,19 @@ public class TestContext extends AbstractTransactionalJUnit4SpringContextTests {
         
         Car car = carDAO.load(1);
         
-        System.out.println("car " + car);
+        System.out.println("loaded car: " + car.getName());
         
+    }
+    
+    @Test
+    public void testSave() {
+        
+        Car car = new Car();
+        car.setName("samochodzik");
+        
+        carDAO.save(car);
+        
+        System.out.println("created and loaded car: " + carDAO.load(1).getName());
     }
     
 }
