@@ -19,7 +19,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author instruktor
+ * @author lukasz s
  */
 @Entity
 @SuppressWarnings("PersistenceUnitPresent")
