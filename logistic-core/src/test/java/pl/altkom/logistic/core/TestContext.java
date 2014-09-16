@@ -6,6 +6,7 @@
 
 package pl.altkom.logistic.core;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -37,6 +38,18 @@ public class TestContext extends AbstractTransactionalJUnit4SpringContextTests {
         
         System.out.println("car " + car);
         
+    }
+    
+    @Test
+    public void testSave() {
+        Car car = new Car();
+        final String carName = "Lamborgini GT";
+        car.setName(carName);
+        carDAO.save(car);
+        
+        car = carDAO.findByName(carName);
+        
+        Assert.assertNotNull(car);
     }
     
 }
