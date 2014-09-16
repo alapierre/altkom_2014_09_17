@@ -24,18 +24,9 @@ public class Customer extends BaseEntity {
     private String customerName;
     @Enumerated(EnumType.STRING)
     private CustomerType customerType;
-    
     @OneToOne
-    @JoinColumn(name = "ADDRESS_ID")
+    @JoinColumn(name="CUST_ADDRESS_ID")
     private Address address;
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
 
     public String getCustomerName() {
         return customerName;
@@ -51,6 +42,14 @@ public class Customer extends BaseEntity {
 
     public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
     
 }
