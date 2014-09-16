@@ -10,6 +10,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -24,8 +26,8 @@ public class Order extends BaseEntity {
     private Date placed;
     private Date delivered;
     
-    //TODO wjozkow
-    //private Address deliveryAddress;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Address deliveryAddress;
     
     @Enumerated(EnumType.ORDINAL) 
     private PaymentMethod paymentMethod;
@@ -42,6 +44,15 @@ public class Order extends BaseEntity {
         BITCOIN        
     }
 
+    public Address getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setDeliveryAddress(Address deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+    }
+
+    
     public Date getPlaced() {
         return placed;
     }

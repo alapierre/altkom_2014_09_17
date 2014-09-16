@@ -7,11 +7,13 @@
 package pl.altkom.logistic.core.model;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -31,6 +33,10 @@ public class Package extends BaseEntity{
     @OneToOne
     @JoinColumn(name="ADDRESS_ID")
     private Address address;
+    
+    @OneToMany
+    @JoinColumn(name="PACKAGE_ID")
+    private Collection<PackageItem> packageItems;
 
     public int getSize() {
         return size;
