@@ -21,8 +21,11 @@ public class User extends BaseEntity{
     
     private String lastName;
 
-//    @OneToMany
+//    @ManyToMany
 //    private Collection<Customer> customers;
+    
+//    @OneToOne
+//    private Collection<Car> cars;
 
     public String getFirstName() {
         return firstName;
@@ -45,6 +48,14 @@ public class User extends BaseEntity{
 //
 //    public void setCustomers(Collection<Customer> customers) {
 //        this.customers = customers;
+//    }
+    
+//    public String getCars() {
+//        return cars;
+//    }
+//
+//    public void setCars(Collection<Car> cars) {
+//        this.cars = cars;
 //    }
     
     
