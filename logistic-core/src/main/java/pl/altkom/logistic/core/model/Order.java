@@ -13,6 +13,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -23,7 +24,9 @@ import javax.persistence.Table;
 @SuppressWarnings("PersistenceUnitPresent")
 public class Order extends BaseEntity {
     
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date placed;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date delivered;
     
     @ManyToOne(fetch = FetchType.EAGER)
