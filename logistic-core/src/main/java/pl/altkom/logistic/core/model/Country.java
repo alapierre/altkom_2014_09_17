@@ -25,6 +25,15 @@ public class Country extends BaseEntity {
 
     @OneToMany(mappedBy = "country")
     private List<Department> departments;
+
+    public List<Department> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(List<Department> departments) {
+        this.departments = departments;
+    }
+
     
     public String getCountryName() {
         return countryName;
