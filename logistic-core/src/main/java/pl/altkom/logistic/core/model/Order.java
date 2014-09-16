@@ -31,10 +31,7 @@ public class Order extends BaseEntity {
     
     @Enumerated(EnumType.ORDINAL) 
     private PaymentMethod paymentMethod;
-    
-    @OneToOne
-    @JoinColumn(name = "ADDRESS_ID")
-    private Address address;
+
 
     public Order() {
         
