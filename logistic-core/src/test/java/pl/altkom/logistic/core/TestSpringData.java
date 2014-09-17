@@ -130,13 +130,18 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
     @Test
     public void testFindById() {
         Iterable<TaxRate> findById = taxRateDAO.findById(2);
-//        System.out.println(findById.iterator().next());
+        findById.forEach(tr -> System.out.println(tr));
     }
     
     @Test
     public void testFindByRate() {
         Iterable<TaxRate> findByRate = taxRateDAO.findByRate(22);
         findByRate.forEach(tr -> System.out.println(tr));
+    }
+    
+    @Test
+    public void testCountByRate(){
+        System.out.println(taxRateDAO.countByRate(22));
     }
     
 
