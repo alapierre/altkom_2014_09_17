@@ -5,6 +5,8 @@
  */
 
 package pl.altkom.logistic.core;
+import java.sql.Date;
+import java.time.LocalDate;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import pl.altkom.logistic.core.model.Car;
 import pl.altkom.logistic.dao.springdata.CarDAO;
+import pl.altkom.logistic.dao.springdata.InvoiceDAO;
 
 
 /**
@@ -25,6 +28,10 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
     
     @Autowired
     private CarDAO carDAO;
+    
+    
+    @Autowired
+    private InvoiceDAO invoiceDAO;
     
     @Test
     public void test() {
@@ -64,4 +71,18 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
         
     }
     
+    @Test
+    public void testFindByDate() {
+        invoiceDAO.findByDate(Date.valueOf(LocalDate.now()));
+    }
+
+    @Test
+    public void testFindByDateAfter() {
+        invoiceDAO.findByDateAfter(Date.valueOf(LocalDate.now()));
+    }
+
+    @Test
+    public void testFindByDateBefore() {
+        invoiceDAO.findByDateBefore(Date.valueOf(LocalDate.now()));
+    }
 }
