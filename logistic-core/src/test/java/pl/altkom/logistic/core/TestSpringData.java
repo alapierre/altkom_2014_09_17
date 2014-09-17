@@ -82,36 +82,6 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
         //assertNotNull(foundCar);
     }
 
-    @Test
-    public void createUser() {
-        Car c1 = new Car();
-        c1.setName("tarpan");
-        
-        
-        
-        User u1 = new User();
-        u1.setFirstName("lukasz");
-        u1.setLastName("skrzypczak");
-        List<Car> arrayList = new ArrayList<>();
-        arrayList.add(c1);
-        u1.setCars(arrayList);
-        
-        userDAO.save(u1);
-        carDAO.save(c1);
-//        userDAO.flush();
-        
-        
-        Iterable<User> result1 = userDAO.findByLastNameLikeIgnoreCase("skrzypczak");
-        assertTrue(result1.iterator().hasNext());
-        Iterable<User> result2 = userDAO.findByLastNameAndFirstName("skrzypczak","lukasz");
-        assertTrue(result2.iterator().hasNext());
-        Iterable<User> result3 = userDAO.findByFirstNameLikeAndCarsNameLike("lukasz","tarpan");
-        assertTrue(result3.iterator().hasNext());
-        Iterable<User> result4 = userDAO.findByLastNameLikeAndCarsNameLike("%","tarpan");
-        assertTrue(result4.iterator().hasNext());
-    }
-    
-      
     public void createTaxRate() {
         TaxRate tr = new TaxRate();
         tr.setRate(18);
