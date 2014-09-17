@@ -13,18 +13,19 @@ import javax.persistence.Entity;
  * @author Sylwia
  */
 @Entity
+@SuppressWarnings("PersistenceUnitPresent")
 public class PackageItem extends BaseEntity{
     
-    private String type;
+    private String description;
     
     private int value;
 
-    public String getType() {
-        return type;
+    public String getDescription() {
+        return description;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getValue() {
@@ -34,5 +35,6 @@ public class PackageItem extends BaseEntity{
     public void setValue(int value) {
         this.value = value;
     }
+    
     
 }
