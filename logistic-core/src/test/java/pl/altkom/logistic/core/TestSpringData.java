@@ -98,6 +98,9 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
     @Test
     public void testFindByInvoiceItemsCurrency() {
         invoiceDAO.findByInvoiceItemsCurrency(Currency.getInstance("EUR"));
+    }
+    
+    @Test
     public void testAddressFindBy(){
         addressDAO.findByStreetAndNumber("ala", 1);
     }
