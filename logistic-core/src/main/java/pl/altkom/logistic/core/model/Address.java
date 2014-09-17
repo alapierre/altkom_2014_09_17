@@ -6,6 +6,7 @@
 
 package pl.altkom.logistic.core.model;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 
 /**
@@ -14,7 +15,7 @@ import javax.persistence.Entity;
  */
 @Entity
 @SuppressWarnings("PersistenceUnitPresent")
-public class Address extends BaseEntity {
+public class Address extends BaseEntity implements Serializable{
     
     private String street;
     private Integer number;
