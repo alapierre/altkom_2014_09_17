@@ -17,5 +17,7 @@ public interface TaxRateDAO extends CrudRepository<TaxRate, Integer> {
     Iterable<TaxRate> findById(Integer id);
 
     Iterable<TaxRate> findByRate(Integer rate);
+    
+    long countByRate(Integer rate);
 
 }

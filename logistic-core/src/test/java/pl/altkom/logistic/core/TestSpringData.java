@@ -100,13 +100,18 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
     @Test
     public void testFindById() {
         Iterable<TaxRate> findById = taxRateDAO.findById(2);
-//        System.out.println(findById.iterator().next());
+        findById.forEach(tr -> System.out.println(tr));
     }
     
     @Test
     public void testFindByRate() {
         Iterable<TaxRate> findByRate = taxRateDAO.findByRate(22);
         findByRate.forEach(tr -> System.out.println(tr));
+    }
+    
+    @Test
+    public void testCountByRate(){
+        System.out.println(taxRateDAO.countByRate(22));
     }
     
 
@@ -159,6 +164,29 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
     @Test
     public void testFindByStreetLessThanNumber(){
         addressDAO.findByStreetAndNumberLessThan("ala", 2);
+    }
+    
+    @Test
+    public void testSavePackage() {
+        Package p = new Package();
+        p.setWidth(new BigDecimal(12));
+        p.setHeight(new BigDecimal(24));
+        p.setLength(new BigDecimal(36));
+        p.setTyp(Package.PackageTyp.EXPRESS);
+       
+        packageDAO.save(p);
+    }
+    
+    @Test
+    public void testFindPackageByTyp() {
+        Set<Package> packages = packageDAO.findByTyp(Package.PackageTyp.EXPRESS);
+        assertFalse(packages.isEmpty());
+    }
+    
+    @Test
+    public void testFindPackageByVolume() {
+        Set<Package> packages = packageDAO.findByWidthAndHeightAndLength(new BigDecimal(12), new BigDecimal(24), new BigDecimal(36));
+        assertFalse(packages.isEmpty());
     }
     
 }
