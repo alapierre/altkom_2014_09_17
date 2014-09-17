@@ -6,6 +6,7 @@
 
 package pl.altkom.logistic.core.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -24,7 +25,7 @@ public class Customer extends BaseEntity {
     private String customerName;
     @Enumerated(EnumType.STRING)
     private CustomerType customerType;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="CUST_ADDRESS_ID")
     private Address address;
 
