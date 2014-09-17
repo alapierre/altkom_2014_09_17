@@ -9,6 +9,8 @@ package pl.altkom.logistic.core.model;
 import java.math.BigDecimal;
 import java.util.Collection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -21,6 +23,7 @@ import javax.persistence.OneToOne;
 @SuppressWarnings("PersistenceUnitPresent")
 public class Package extends BaseEntity{
     
+    @Enumerated(EnumType.STRING)
     private PackageTyp typ;
     
     private BigDecimal weight;
@@ -43,6 +46,9 @@ public class Package extends BaseEntity{
 
     public enum PackageTyp{
         STANDARD, EXPRESS
+    }
+
+    public Package() {
     }
     
     public BigDecimal getWeight() {
