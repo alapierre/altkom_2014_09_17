@@ -7,6 +7,7 @@
 package pl.altkom.logistic.core;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.Currency;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,4 +86,15 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
     public void testFindByDateBefore() {
         invoiceDAO.findByDateBefore(Date.valueOf(LocalDate.now()));
     }
+    
+    @Test
+    public void testFindByDateBetween() {
+        invoiceDAO.findByDateBetween(Date.valueOf(LocalDate.now()), Date.valueOf(LocalDate.now().plusDays(5)));
+    }
+    
+    @Test
+    public void testFindByInvoiceItemsCurrency() {
+        invoiceDAO.findByInvoiceItemsCurrency(Currency.getInstance("EUR"));
+    }
+    
 }
