@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
+import pl.altkom.logistic.core.model.Address;
 import pl.altkom.logistic.core.model.Customer;
 import pl.altkom.logistic.core.model.CustomerType;
 import pl.altkom.logistic.dao.springdata.CustomerDAO;
@@ -28,9 +29,14 @@ public class CustomerDAOTest extends AbstractTransactionalJUnit4SpringContextTes
     
     @Test
     public void testMethods() {
+        Address address = new Address();
+        address.setStreet("pl. Bema");
+        address.setNumber(2);
+        
         Customer customer = new Customer();
         customer.setCustomerName("DHL");
         customer.setCustomerType(CustomerType.COMPANY);
+        customer.setAddress(address);
         
         customer = customerDao.save(customer);
         Assert.assertNotNull(customer.getId());
@@ -44,11 +50,11 @@ public class CustomerDAOTest extends AbstractTransactionalJUnit4SpringContextTes
         customers = customerDao.findByCustomerNameLikeIgnoreCaseAndCustomerType("dh%", CustomerType.COMPANY);
         Assert.assertTrue(customers.iterator().hasNext());
         
-        long count = customerDao.countByCustomerType(CustomerType.PRIVATE);
-        Assert.assertEquals(0L, count);
+        customers = customerDao.findByCustomerNameLikeIgnoreCaseAndAddressStreetLikeIgnoreCase("dh%", "%Bem%");
+        Assert.assertTrue(customers.iterator().hasNext());
         
-        count = customerDao.countByCustomerType(CustomerType.COMPANY);
-        Assert.assertEquals(1L, count);
+        long count = customerDao.countByCustomerType(CustomerType.COMPANY);
+        Assert.assertTrue(count > 0);
         
         customerDao.delete(customer);
     }
