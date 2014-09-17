@@ -28,7 +28,8 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            /WEB-INF/logistic-web-servlet.xml          
+            classpath:logistic-core.xml,
+            classpath:logistic-web-core.xml         
         </param-value>
     </context-param>
     

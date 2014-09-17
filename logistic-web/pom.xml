@@ -152,11 +152,11 @@
             <artifactId>spring-orm</artifactId>
         </dependency>
 
-	<dependency>
+<!--	<dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.0-api</artifactId>
             <version>1.0.1.Final</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -213,6 +213,11 @@
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.9.7</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>logistic-core</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>
