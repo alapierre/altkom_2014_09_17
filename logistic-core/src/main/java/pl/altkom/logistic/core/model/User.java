@@ -2,6 +2,7 @@ package pl.altkom.logistic.core.model;
 
 
 import java.util.Collection;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
@@ -30,11 +31,6 @@ public class User extends BaseEntity{
     private Collection<Car> cars;
     @ManyToOne
     private Department department;
-
-
-    
-//    @OneToMany
-//    private Collection<Customer> customers;
    
     public Department getDepartment() {
         return department;

@@ -29,4 +29,11 @@ public class TaxRate extends BaseEntity {
         this.rate = rate;
     }
 
+    @Override
+    public String toString() {
+        return "Tax Rate(" + "Id:" + id + " Rate:" + rate + ")";
+    }
+    
+    
+
 }

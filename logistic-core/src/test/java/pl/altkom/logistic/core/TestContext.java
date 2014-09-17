@@ -12,7 +12,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import pl.altkom.logistic.core.model.Car;
+import pl.altkom.logistic.core.model.User;
 import pl.altkom.logistic.dao.CarDAO;
+import pl.altkom.logistic.dao.springdata.UserDAO;
 
 /**
  *
@@ -24,6 +26,7 @@ public class TestContext extends AbstractTransactionalJUnit4SpringContextTests {
     
     @Autowired
     private CarDAO carDAO;
+
     
     @Test
     public void test() {
@@ -35,6 +38,7 @@ public class TestContext extends AbstractTransactionalJUnit4SpringContextTests {
         Car car = carDAO.load(1);
         System.out.println("car " + car);
     }
+
     
     @Test
     public void createCar(){
