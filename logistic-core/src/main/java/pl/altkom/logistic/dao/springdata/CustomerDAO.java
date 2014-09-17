@@ -16,6 +16,7 @@ import pl.altkom.logistic.core.model.CustomerType;
  */
 public interface CustomerDAO extends CrudRepository<Customer, Integer>{
     Iterable<Customer> findByCustomerNameLikeIgnoreCase(String name);
+    Iterable<Customer> findByCustomerNameLikeIgnoreCaseAndAddressStreetLikeIgnoreCase(String customerName, String address);
     Iterable<Customer> findByCustomerNameLikeIgnoreCaseAndCustomerType(String name, CustomerType type);
     long countByCustomerType(CustomerType type);
 }
