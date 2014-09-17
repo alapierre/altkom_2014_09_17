@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author lukasz s
+ * @author lukasz s ...
  */
 @Entity
 @SuppressWarnings("PersistenceUnitPresent")
@@ -26,7 +26,7 @@ public class User extends BaseEntity{
     private Collection<Customer> customers;
     
     @OneToMany
-    @JoinColumn(name = "USER_ID")
+    @JoinColumn(name = "UZER_ID")
     private Collection<Car> cars;
     @ManyToOne
     private Department department;

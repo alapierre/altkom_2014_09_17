@@ -9,9 +9,6 @@ package pl.altkom.logistic.core.model;
 import java.math.BigDecimal;
 import java.util.Collection;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -24,9 +21,15 @@ import javax.persistence.OneToOne;
 @SuppressWarnings("PersistenceUnitPresent")
 public class Package extends BaseEntity{
     
-    private int size;
+    private PackageTyp typ;
     
     private BigDecimal weight;
+    
+    private BigDecimal width;
+    
+    private BigDecimal height;
+    
+    private BigDecimal length;
     
     private String status;
     
@@ -38,14 +41,10 @@ public class Package extends BaseEntity{
     @JoinColumn(name="PACKAGE_ID")
     private Collection<PackageItem> packageItems;
 
-    public int getSize() {
-        return size;
+    public enum PackageTyp{
+        STANDARD, EXPRESS
     }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
+    
     public BigDecimal getWeight() {
         return weight;
     }
@@ -69,4 +68,46 @@ public class Package extends BaseEntity{
     public void setAddress(Address address) {
         this.address = address;
     }
+
+    public PackageTyp getTyp() {
+        return typ;
+    }
+
+    public void setTyp(PackageTyp typ) {
+        this.typ = typ;
+    }
+
+    public BigDecimal getWidth() {
+        return width;
+    }
+
+    public void setWidth(BigDecimal width) {
+        this.width = width;
+    }
+
+    public BigDecimal getHeight() {
+        return height;
+    }
+
+    public void setHeight(BigDecimal height) {
+        this.height = height;
+    }
+
+    public BigDecimal getLength() {
+        return length;
+    }
+
+    public void setLength(BigDecimal length) {
+        this.length = length;
+    }
+
+    public Collection<PackageItem> getPackageItems() {
+        return packageItems;
+    }
+
+    public void setPackageItems(Collection<PackageItem> packageItems) {
+        this.packageItems = packageItems;
+    }
+    
+    
 }
