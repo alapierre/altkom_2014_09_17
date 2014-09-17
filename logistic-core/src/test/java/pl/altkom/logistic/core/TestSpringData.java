@@ -12,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import pl.altkom.logistic.core.model.Car;
+import pl.altkom.logistic.dao.springdata.AddressDAO;
 import pl.altkom.logistic.dao.springdata.CarDAO;
 
 
@@ -25,6 +26,9 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
     
     @Autowired
     private CarDAO carDAO;
+    
+    @Autowired
+    private AddressDAO addressDAO;
     
     @Test
     public void test() {
@@ -62,6 +66,16 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
         
         carDAO.findByNameLikeIgnoreCase("%t%");
         
+    }
+    
+    @Test
+    public void testAddressFindBy(){
+        addressDAO.findByStreetAndNumber("ala", 1);
+    }
+    
+    @Test
+    public void testFindByStreetLessThanNumber(){
+        addressDAO.findByStreetAndNumberLessThan("ala", 2);
     }
     
 }
