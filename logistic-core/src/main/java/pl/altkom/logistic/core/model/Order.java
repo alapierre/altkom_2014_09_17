@@ -7,6 +7,7 @@
 package pl.altkom.logistic.core.model;
 
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -32,6 +33,9 @@ public class Order extends BaseEntity {
     @ManyToOne(fetch = FetchType.EAGER)
     private Address deliveryAddress;
     
+    @ManyToOne(cascade = {CascadeType.PERSIST})
+    private Customer customer;
+    
     @Enumerated(EnumType.ORDINAL) 
     private PaymentMethod paymentMethod;
 
@@ -54,6 +58,14 @@ public class Order extends BaseEntity {
 
     public void setDeliveryAddress(Address deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     
