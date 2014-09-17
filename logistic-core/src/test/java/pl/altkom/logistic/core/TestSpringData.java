@@ -8,11 +8,7 @@ package pl.altkom.logistic.core;
 
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Currency;
-import java.util.List;
-
-import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +17,10 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import pl.altkom.logistic.core.model.Car;
 import pl.altkom.logistic.core.model.TaxRate;
-import pl.altkom.logistic.core.model.User;
 import pl.altkom.logistic.dao.springdata.AddressDAO;
 import pl.altkom.logistic.dao.springdata.CarDAO;
 import pl.altkom.logistic.dao.springdata.InvoiceDAO;
 import pl.altkom.logistic.dao.springdata.TaxRateDAO;
-import pl.altkom.logistic.dao.springdata.UserDAO;
 
 
 
@@ -40,9 +34,6 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
 
     @Autowired
     private CarDAO carDAO;
-
-    @Autowired
-    private UserDAO userDAO;
 
     @Autowired
     private TaxRateDAO taxRateDAO;
@@ -70,8 +61,6 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
         Car car = new Car();
         car.setName(carName);
         carDAO.save(car);
-        //Car foundCar = carDAO.findByName(carName);
-        //assertNotNull(foundCar);
     }
 
     public void createTaxRate() {
