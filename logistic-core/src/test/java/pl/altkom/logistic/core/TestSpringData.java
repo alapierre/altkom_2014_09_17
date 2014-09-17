@@ -6,12 +6,11 @@
 
 package pl.altkom.logistic.core;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Currency;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -21,18 +20,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import pl.altkom.logistic.core.model.Car;
-
-import pl.altkom.logistic.core.model.User;
-
 import pl.altkom.logistic.core.model.TaxRate;
+import pl.altkom.logistic.core.model.User;
 import pl.altkom.logistic.dao.springdata.AddressDAO;
-
 import pl.altkom.logistic.dao.springdata.CarDAO;
-
-import pl.altkom.logistic.dao.springdata.UserDAO;
-
-import pl.altkom.logistic.dao.springdata.TaxRateDAO;
 import pl.altkom.logistic.dao.springdata.InvoiceDAO;
+import pl.altkom.logistic.dao.springdata.TaxRateDAO;
+import pl.altkom.logistic.dao.springdata.UserDAO;
 
 
 
@@ -53,13 +47,11 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
     @Autowired
     private TaxRateDAO taxRateDAO;
 
-    
-    
     @Autowired
     private InvoiceDAO invoiceDAO;
+    
     @Autowired
     private AddressDAO addressDAO;
-
     
     @Test
     public void test() {
@@ -194,29 +186,6 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
     @Test
     public void testFindByStreetLessThanNumber(){
         addressDAO.findByStreetAndNumberLessThan("ala", 2);
-    }
-    
-    @Test
-    public void testSavePackage() {
-        Package p = new Package();
-        p.setWidth(new BigDecimal(12));
-        p.setHeight(new BigDecimal(24));
-        p.setLength(new BigDecimal(36));
-        p.setTyp(Package.PackageTyp.EXPRESS);
-       
-        packageDAO.save(p);
-    }
-    
-    @Test
-    public void testFindPackageByTyp() {
-        Set<Package> packages = packageDAO.findByTyp(Package.PackageTyp.EXPRESS);
-        assertFalse(packages.isEmpty());
-    }
-    
-    @Test
-    public void testFindPackageByVolume() {
-        Set<Package> packages = packageDAO.findByWidthAndHeightAndLength(new BigDecimal(12), new BigDecimal(24), new BigDecimal(36));
-        assertFalse(packages.isEmpty());
     }
     
 }
