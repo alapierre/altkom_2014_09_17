@@ -107,7 +107,7 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
         assertTrue(result2.iterator().hasNext());
         Iterable<User> result3 = userDAO.findByFirstNameLikeAndCarsNameLike("lukasz","tarpan");
         assertTrue(result3.iterator().hasNext());
-        Iterable<User> result4 = userDAO.findByLastNameLikeAndCarsNameLike("skrzy","tarpan");
+        Iterable<User> result4 = userDAO.findByLastNameLikeAndCarsNameLike("%","tarpan");
         assertTrue(result4.iterator().hasNext());
     }
     
@@ -130,7 +130,7 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
     @Test
     public void testFindById() {
         Iterable<TaxRate> findById = taxRateDAO.findById(2);
-        System.out.println(findById.iterator().next());
+//        System.out.println(findById.iterator().next());
     }
     
     @Test
