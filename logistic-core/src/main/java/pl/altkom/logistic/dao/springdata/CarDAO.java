@@ -13,6 +13,8 @@ import pl.altkom.logistic.core.model.Car;
  *
  * @author Adrian Lapierre <adrian@soft-project.pl>
  */
-public interface CarDAO extends CrudRepository<Car, Integer>{
+public interface CarDAO extends CrudRepository<Car, Integer> {
+    
+    public Iterable<Car> findByNameLikeIgnoreCase(String name);
     
 }

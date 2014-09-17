@@ -57,4 +57,11 @@ public class TestSpringData extends AbstractTransactionalJUnit4SpringContextTest
         
     }
     
+    @Test
+    public void testFindByName() {
+        
+        carDAO.findByNameLikeIgnoreCase("%t%");
+        
+    }
+    
 }
