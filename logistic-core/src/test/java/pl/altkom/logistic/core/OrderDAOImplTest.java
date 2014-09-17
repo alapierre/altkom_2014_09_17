@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import org.apache.log4j.Logger;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,8 @@ import pl.altkom.logistic.dao.springdata.OrderDAO;
 @TransactionConfiguration(defaultRollback = false)
 public class OrderDAOImplTest extends AbstractTransactionalJUnit4SpringContextTests {
     
+    private Logger logger = Logger.getLogger(OrderDAOImplTest.class);
+    
     @Autowired
     private OrderDAO orderDAO;
     
@@ -36,7 +39,7 @@ public class OrderDAOImplTest extends AbstractTransactionalJUnit4SpringContextTe
     @Test
     public void testLoad() {
         Order order = orderDAO.findOne(1);
-        System.out.println("order " + order);
+        logger.info("order " + order);
     }
     
     @Test
@@ -44,6 +47,7 @@ public class OrderDAOImplTest extends AbstractTransactionalJUnit4SpringContextTe
         
         Order order = new Order();
         order.setPlaced(new Date());
+        order.setPaymentMethod(Order.PaymentMethod.CASH);
         orderDAO.save(order);
     }
     
@@ -62,7 +66,7 @@ public class OrderDAOImplTest extends AbstractTransactionalJUnit4SpringContextTe
     @Test
     public void testFindByCustomerCustomerName(){
         List<Order> results = orderDAO.findByCustomerCustomerName("Piotr Pietrzyk");
-        System.out.println("size: "+results.size());
+        logger.info("size: "+results.size());
     }
 
     @Test
@@ -70,7 +74,21 @@ public class OrderDAOImplTest extends AbstractTransactionalJUnit4SpringContextTe
         Calendar from = new GregorianCalendar(2013, 1, 1);
         Calendar to = new GregorianCalendar(2014, 12, 12);
         List<Order> results = orderDAO.findByPlacedBetween(from.getTime(),to.getTime());
-        System.out.println("size placed: "+results.size());
+        logger.info("size placed: "+results.size());
+    }
+
+        @Test
+    public void testFindByPlacedBefore(){
+        Calendar before = new GregorianCalendar(2014, 9, 17);
+        List<Order> results = orderDAO.findByPlacedBefore(before.getTime());
+        logger.info("size placed before: "+results.size());
+    }
+
+        @Test
+    public void testFindByPaymentMethod(){
+        List<Order> results = orderDAO.findByPaymentMethod(Order.PaymentMethod.CASH);
+        logger.info("size payment: "+results.size());
+        
     }
 
 }
