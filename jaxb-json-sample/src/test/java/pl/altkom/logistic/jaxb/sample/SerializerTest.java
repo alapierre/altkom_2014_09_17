@@ -22,7 +22,9 @@ public class SerializerTest {
         
         InvoiceSerializer serializer = new InvoiceSerializer();
         
-        Invoice invoice = serializer.fromFile(new File("src/resources/FS 1_MAG_05_2012.xml"));
+        Invoice invoice = serializer.fromFile(new File("src/main/resources/FS 1_MAG_05_2012.xml"));
+        
+        System.out.println(invoice.getSeller());
         
     }
     
