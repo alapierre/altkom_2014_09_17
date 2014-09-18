@@ -8,6 +8,10 @@ package pl.altkom.logistic.jaxb.sample;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
 import pl.alltkom.logistic.jaxb.json.sample.InvoiceSerializer;
@@ -30,6 +34,30 @@ public class Json {
         String str = mapper.writeValueAsString(invoice);
         
         System.out.println(str);
+        
+    }
+    
+    @Test
+    public void testCustomJson() throws IOException {
+        
+        ObjectMapper mapper = new ObjectMapper();
+        List<Map<String, String>> list = new ArrayList<>();
+        
+        Map<String, String> map = new HashMap<>();
+            
+        map.put("id", "1");
+        map.put("name", "nazwa");
+        map.put("shortName", "kod");
+        list.add(map);
+        
+        map.put("id", "2");
+        map.put("name", "nazwa2");
+        map.put("shortName", "kod2");
+        list.add(map);
+        
+        String jsonStr = mapper.writeValueAsString(list);
+        
+        System.out.println(jsonStr);
         
     }
     
