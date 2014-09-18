@@ -8,7 +8,8 @@
     <modules>
         <module>logistic-core</module>
     <module>logistic-web</module>
-  </modules>
+        <module>jaxb-json-sample</module>
+    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
