@@ -16,7 +16,7 @@
     <!--tx:annotation-driven transaction-manager="core.txManager" /-->
     
     <mvc:resources mapping="/resources/**" location="/resources/"/>
-    <mvc:view-controller path="/" view-name="home"/>
+    <mvc:view-controller path="/" view-name="/app/home"/>
     
     <context:property-placeholder location="classpath:system.properties"/>
     
