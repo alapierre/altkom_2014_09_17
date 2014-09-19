@@ -9,6 +9,7 @@
         <module>logistic-core</module>
     <module>logistic-web</module>
         <module>jaxb-json-sample</module>
+        <module>logistic-ws-client</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

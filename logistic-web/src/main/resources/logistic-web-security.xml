@@ -16,7 +16,7 @@
 		
     <security:http>
         <security:intercept-url pattern="/**" access="ROLE_USER,ROLE_ADMIN" />        
-                <security:form-login default-target-url="/app/home"/>
+<!--                <security:form-login default-target-url="/app/home"/>-->
         <security:anonymous />
         <security:http-basic />
         <security:logout />

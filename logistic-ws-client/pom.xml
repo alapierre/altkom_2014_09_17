@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>pl.alltkom.logistic</groupId>
+        <artifactId>logistic</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>logistic-ws-client</artifactId>
+    <packaging>jar</packaging>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>1.10</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>                            
+                            <wsdlUrls>
+                                <wsdlUrl>http://localhost:8084/logistic-web/services/HelloWorld?wsdl</wsdlUrl>
+                            </wsdlUrls>
+                            <!--wsdlFiles>
+                                <wsdlFile>localhost_8084/spring-ws/services/HelloWorld.wsdl</wsdlFile>
+                            </wsdlFiles-->
+                            <staleFile>${project.build.directory}/jaxws/stale/HelloWorld.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-HelloWorld</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>javax.xml</groupId>
+                        <artifactId>webservices-api</artifactId>
+                        <version>1.4</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <sourceDestDir>${project.build.directory}/generated-sources/jaxws-wsimport</sourceDestDir>
+                    <xnocompile>true</xnocompile>
+                    <verbose>true</verbose>
+                    <extension>true</extension>
+                    <catalog>${basedir}/src/jax-ws-catalog.xml</catalog>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>
