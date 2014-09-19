@@ -7,6 +7,9 @@
 package pl.alltkom.logistic.logistic.ws.client;
 
 import java.net.Authenticator;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pl.com.softproject.sample.spring.ws.HelloServiceImplService;
 
 /**
@@ -17,7 +20,11 @@ public class Main {
     
     public static void main(String[] args) {
         
-        Authenticator.setDefault(new WSAuthenticator());
+        ApplicationContext ac = new ClassPathXmlApplicationContext("logistic-ws-client.xml");
+        
+        //Authenticator a = ac.getBean("myAuthenticator", Authenticator.class);
+        //System.out.println("a: "+a);
+        //Authenticator.setDefault(a);
         
         HelloServiceImplService service = new HelloServiceImplService();
         
