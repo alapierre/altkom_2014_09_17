@@ -12,6 +12,7 @@
         xmlns:ehcache="http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring"
         xmlns:jpa="http://www.springframework.org/schema/data/jpa"
         xmlns:jaxws="http://cxf.apache.org/jaxws"
+        xmlns:task="http://www.springframework.org/schema/task"
         
         xsi:schemaLocation="
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
@@ -25,6 +26,7 @@
 	http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring/ehcache-spring-1.1.xsd
         http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
         http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
         ">
 
     <!-- Placeholder config -->
@@ -35,6 +37,19 @@
     
     <jaxws:endpoint id="helloWorld" implementor="pl.com.softproject.sample.spring.ws.HelloServiceImpl" 
                     address="/HelloWorld"/>
+    
+    <!--task:annotation-driven/-->
+    
+    <task:scheduler id="scheduler" pool-size="10"/>
+    
+    <task:scheduled-tasks scheduler="scheduler">
+        <task:scheduled ref="reportService" method="sendReport" cron="0/10 * * * * *"/>
+        
+    </task:scheduled-tasks>
+    
+    <bean id="reportService" class="pl.altkom.logistic.web.ReportServiceImpl">
+        
+    </bean>
     
     <!-- Data source -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
